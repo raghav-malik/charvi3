@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Heartfelt Letter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #e0e0e0;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .greeting {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #4F46E5, #7C3AED, #4F46E5, #b65c83, #d61de3, #e70759);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 5s ease infinite;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: #34495e;
+            border: 2px solid #ecf0f1;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .envelope:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-right: 150px solid #2c3e50;
+            border-bottom: 100px solid #2c3e50;
+            border-left: 150px solid transparent;
+        }
+        .envelope::after {
+            content: 'Click';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            color: #e74c3c;
+        }
+        .letter {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 80%;
+            max-width: 500px;
+            height: 80%;
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 30px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: all 0.5s ease;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            visibility: hidden;
+            color: #2c3e50;
+        }
+        .letter.open {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #34495e;
+            transition: color 0.3s ease;
+        }
+        .close-btn:hover {
+            color: #e74c3c;
+        }
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <!-- <div class="greeting">Dear Charvi</div> -->
+        <div class="envelope" id="envelope"></div>
+    </div>
+
+    <div class="letter" id="letter">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <h2>Dear Charvi,</h2>
+        <p>
+            I am really sorry for the miscommunication from my side. <br> <br>
+
+i get it you are angry with me and after analysing the message i got to know that the thing i wanted to convey was not conveyed properly because i was not able to explain that i wanted to take you out to fun dates, like arcades, restaurants, movies and skateboarding also. <br> <br>
+
+i dunno if you remember me telling you about my mentor taking me out to that south indian restaurant which had really good food. <br>
+i really hoped to take you to that place but i guess it was just a wishful thinking from my side.<br> <br>
+
+and i remember when you told me about your past and how you were treated.
+and i really wanted to treat you better and nothing else. <br> <br>
+
+but i dunno how everything ended on a bad note which i never wanted.
+i really wanted everything to be positive until the end and i hope you would understand from my perspective that i really meant the 'fun' thing in a positive way by taking you out to lovely dates. <br> <br>
+
+i really hoped you would have talked to me that day cause i never wanted to do anything wrong. i just wanted to clear the misunderstanding.<br> <br>
+
+you see, i really liked talking to you and also getting to know you. You are genuienly a very good person and have a lovely personality, and i would hope if we can clear this misunderstanding and be on good terms. <br> <br>
+
+i just want to say that, i really wanted your best and hope whatever you want, you accomplish in the future. Also i hope you always find people who are always good for you and want your best.
+<br> <br>
+
+and i realize i made you unhappy with my text the other day, which i never wanted to do. I just want you to be happy and smiling.
+        </p>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function revealGreeting() {
+            setTimeout(() => {
+                document.querySelector('.greeting').style.opacity = '1';
+                document.querySelector('.greeting').style.transform = 'translateY(0)';
+            }, 1000);
+        }
+
+        const envelope = document.getElementById('envelope');
+        const letter = document.getElementById('letter');
+        const closeBtn = document.getElementById('closeBtn');
+
+        envelope.addEventListener('click', () => {
+            letter.classList.add('open');
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            letter.classList.remove('open');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                letter.classList.remove('open');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            revealGreeting();
+        });
+    </script>
+</body>
+</html>

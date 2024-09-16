@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Let You Know How Much I Cared About You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff69b4;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #ff69b4;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 50px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .item {
+            background-color: transparent;
+            perspective: 1000px;
+            height: 250px;
+        }
+        .item-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .item:hover .item-inner {
+            transform: rotateY(180deg);
+        }
+        .item-front, .item-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+        }
+        .item-front {
+            background-color: #1e1e1e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item-back {
+            background-color: #ff69b4;
+            color: #fff;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .item img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .item-description {
+            font-size: 0.9em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .item {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        .item:nth-child(1) { animation-delay: 0.1s; }
+        .item:nth-child(2) { animation-delay: 0.2s; }
+        .item:nth-child(3) { animation-delay: 0.3s; }
+        .item:nth-child(4) { animation-delay: 0.4s; }
+        .item:nth-child(5) { animation-delay: 0.5s; }
+        .item:nth-child(6) { animation-delay: 0.6s; }
+        .item:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes floatRose {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .rose {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background-image: url('pics/rose.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: floatRose 5s infinite ease-in-out;
+            z-index: -1;
+        }
+        .rose:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .rose:nth-child(2) { top: 20%; right: 5%; animation-delay: 1s; }
+        .rose:nth-child(3) { bottom: 10%; left: 10%; animation-delay: 2s; }
+        .rose:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 3s; }
+
+        .button-container {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .fun-button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+        }
+
+        .fun-button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+        }
+
+        .hidden {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="rose"></div>
+    <div class="rose"></div>
+    <div class="rose"></div>
+    <div class="rose"></div>
+
+    <h1 class="typewriter">To Let You Know How Much I Cared About You</h1>
+
+    <h2 class="typewriter">Things You Love</h2>
+    <div class="gallery">
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/rose.webp" alt="Rose">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Favorite Flower</div>
+                    <div class="item-description">Your favorite flower is a rose.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/spicy-food.webp" alt="Spicy Food">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Your Taste</div>
+                    <div class="item-description">You really like spicy food.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/golden-retriever.webp" alt="Golden Retriever">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Favorite Dog</div>
+                    <div class="item-description">You like dogs and your favorite is the golden retriever.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/bollywood.webp" alt="Bollywood">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Bollywood</div>
+                    <div class="item-description">You love bollywood very much and also old hindi songs.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/dancing.webp" alt="Art">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">ART</div>
+                    <div class="item-description">You love dancing and singing.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/dosa.webp" alt="Cooking">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Cooking</div>
+                    <div class="item-description">You love cooking and your fav thing to make is dosa. cause i remember you told me, you really love standing and just making dosa for a time being.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/puran-poli.webp" alt="Dish">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Dish</div>
+                    <div class="item-description">You like puran-poli very much.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/history.webp" alt="History">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">History</div>
+                    <div class="item-description">You are fascinated by history and want to take it as a major.</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+        
+
+    <h2 class="typewriter">Things I Like About You</h2>
+    <div class="gallery">
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/mic.webp" alt="you">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">you</div>
+                    <div class="item-description">I really like your voice and also your eyes.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/perceptiion.webp" alt="Perception">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Your perception.</div>
+                    <div class="item-description">I admire the way you perceive things.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/courage.webp" alt="Randomness">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Randomness</div>
+                    <div class="item-description">I really liked the way we talked about random things and cartoons.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/heels.webp" alt="heels">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Trying</div>
+                    <div class="item-description">your way of getting to try new things meaning when you were trying to get familiar with the heels.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="typewriter">About You</h2>
+    <div class="gallery">
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/astrology.webp" alt="Astrology">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Astrology</div>
+                    <div class="item-description">You are fascinated astrology and i remember how you explained the sun and moon signs so well.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/basketball.webp" alt="basketball">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Basketball</div>
+                    <div class="item-description">You used to play basketball before but now you do not because of injury.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/books.webp" alt="PCMB">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">PCMB</div>
+                    <div class="item-description">you took PCMB because you wanted biology to cover your maths grade.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/snacking.webp" alt="snacking">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Snacking</div>
+                    <div class="item-description">Your midnight snacking with your dad, that was cute.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/sketching.webp" alt="drawing">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Drawing</div>
+                    <div class="item-description">i know you like sketching but are not able to do cause it takes too much time.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/oyes.webp" alt="OYES">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">OYES</div>
+                    <div class="item-description">You tried OYES for the very first time after coming here.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/history.webp" alt="Studies">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Studies</div>
+                    <div class="item-description">You took liberal arts and is like confused if you made the right decision or not. but i would say do what you love cause life is short and it can be very short sometimes. and also everything works out in the end.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/music.webp" alt="zone-out">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Zone-out</div>
+                    <div class="item-description">also you told me that you zone out, or listen to music when you feel down.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/fear.webp" alt="fear">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Fear</div>
+                    <div class="item-description">Your biggest fear is living a monotonous life.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/india.webp" alt="pan">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Pan indian</div>
+                    <div class="item-description">You are a pan indian.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/smoke.webp" alt="s/d">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">smoke/drink</div>
+                    <div class="item-description">You don't drink or smoke.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/ocd.jpg" alt="o/a">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">OCD</div>
+                    <div class="item-description">I remember you telling me you have OCD and also asthama, i am very sorry if i am wrong.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="fun-button" onclick="window.location.href='fun2.html'">Fun Ideas</button>
+    </div>
+
+    <script>
+        function revealImages() {
+            const images = document.querySelectorAll('.item img');
+            images.forEach(img => {
+                img.classList.add('hidden');
+                img.onload = () => img.classList.remove('hidden');
+                const originalSrc = img.src;
+                img.src = '';
+                setTimeout(() => {
+                    img.src = originalSrc;
+                }, 1000);
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            revealImages();
+        });
+    </script>
+    
+</body>
+</html>

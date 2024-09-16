@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poem - Thoughts About You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .greeting {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #4F46E5, #7C3AED, #4F46E5, #b65c83, #d61de3, #e70759);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 5s ease infinite;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .poem-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            max-width: 800px;
+            width: 90%;
+            max-height: 60vh;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .poem {
+            white-space: pre-wrap;
+            font-style: italic;
+            color: #e0e0e0;
+            text-align: left;
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        .next-button {
+            background: linear-gradient(45deg, #4F46E5, #7C3AED);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+        .next-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="greeting">Poem for you</div>
+        <div class="poem-container">
+            <div id="poem" class="poem"></div>
+        </div>
+        <button class="next-button" onclick="window.location.href='letter2.html'">Next thing</button>
+    </div>
+
+    <script>
+        const poem = `there's a silly habit i carry
+whenever i witness something interesting, i can't help but think of you.
+i notice something unique, and I compare it with the things you've shared.
+like the time you explained sun and moon signs in astrology, and how your insight made it all click for me.
+or when you told me about your midnight snacking with your dad—it's those small moments that make me smile.
+hearing about your love for dancing and singing, but what really stands out is your drive to avoid a life of routine.
+it's like how bright colors, which you love, fill your world with excitement.
+you're always up for new experiences, like when you gave OYES a try for the first time, or the way you pushed yourself to get used to wearing heels.
+i think about your cooking skills, especially dosa, and how you enjoyed that garlic malai paneer roll—it shows how much you enjoy good food, especially when it's spicy.
+i respect how you're still navigating your liberal arts journey, unsure at times,
+but knowing that you'll figure it out because, life is short, and everything has a way of working out.
+you've got this passion for life—whether it's playing badminton, your love for Bollywood (especially the old songs), or drawing (even if it takes time).
+your friends, your golden retriever, and your dreams of doing what you love while making a good living—it all shows how thoughtful you are.
+it's clear you're someone who finds meaning in the things you care about.
+so, while I often find myself comparing life's moments to things you've told me,
+what I realize is that your passion, your curiosity, and your approach to life are what make you stand out.`;
+
+        const poemElement = document.getElementById('poem');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < poem.length) {
+                poemElement.innerHTML += poem.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            } else {
+                poemElement.classList.add('typewriter');
+            }
+        }
+
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function revealGreeting() {
+            setTimeout(() => {
+                document.querySelector('.greeting').style.opacity = '1';
+                document.querySelector('.greeting').style.transform = 'translateY(0)';
+            }, 1000);
+        }
+
+        window.onload = () => {
+            createStars();
+            revealGreeting();
+            typeWriter();
+        };
+    </script>
+</body>
+</html>

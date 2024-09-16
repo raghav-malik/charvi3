@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Spectacular Message for You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #e0e0e0;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .greeting {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #4F46E5, #7C3AED, #4F46E5, #b65c83, #d61de3, #e70759);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 5s ease infinite;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        .content {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .typewriter-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            max-width: 600px;
+            position: relative;
+            opacity: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #e0e0e0;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #e0e0e0; }
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px rgba(224, 224, 224, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(224, 224, 224, 0.8); }
+            100% { text-shadow: 0 0 5px rgba(224, 224, 224, 0.5); }
+        }
+        .button-container {
+            margin-top: 2rem;
+        }
+        .button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="greeting">Hello, Charvi</div>
+        <div class="content">
+            <p class="typewriter-text">I know you don't care,</p>
+            <p class="typewriter-text">but I would appreciate if you could see this.</p>
+            <p class="typewriter-text">A little something i made.</p>
+            <p class="typewriter-text">click the button below.</p>
+            <div class="button-container">
+                <a href="main.html" class="button">Click Here</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function revealGreeting() {
+            setTimeout(() => {
+                document.querySelector('.greeting').style.opacity = '1';
+                document.querySelector('.greeting').style.transform = 'translateY(0)';
+            }, 1000);
+        }
+
+        function typeWriter(element, text, i, cb) {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(() => typeWriter(element, text, i, cb), 50);
+            } else if (i === text.length) {
+                element.style.borderRight = 'none';
+                element.style.animation = 'glow 2s ease-in-out infinite';
+                cb();
+            }
+        }
+
+        function revealContent() {
+            const content = document.querySelector('.content');
+            const textElements = content.querySelectorAll('.typewriter-text');
+            const button = content.querySelector('.button');
+
+            content.style.opacity = '1';
+
+            function revealNextLine(index) {
+                if (index < textElements.length) {
+                    const element = textElements[index];
+                    element.style.opacity = '1';
+                    const text = element.textContent;
+                    element.textContent = '';
+                    typeWriter(element, text, 0, () => {
+                        setTimeout(() => revealNextLine(index + 1), 500);
+                    });
+                } else {
+                    button.style.opacity = '1';
+                    button.style.transform = 'translateY(0)';
+                }
+            }
+
+            setTimeout(() => revealNextLine(0), 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            revealGreeting();
+            revealContent();
+        });
+
+        document.querySelector('.button').addEventListener('click', function(e) {
+            e.preventDefault();
+            setTimeout(function() {
+                window.location.href = 'test.html';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

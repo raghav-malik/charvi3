@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Ideas - What I Really Meant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff69b4;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #ff69b4;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 50px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .item {
+            background-color: transparent;
+            perspective: 1000px;
+            height: 250px;
+        }
+        .item-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .item:hover .item-inner {
+            transform: rotateY(180deg);
+        }
+        .item-front, .item-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+        }
+        .item-front {
+            background-color: #1e1e1e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item-back {
+            background-color: #ff69b4;
+            color: #fff;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .item img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .item-description {
+            font-size: 0.9em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .item {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        .item:nth-child(1) { animation-delay: 0.1s; }
+        .item:nth-child(2) { animation-delay: 0.2s; }
+        .item:nth-child(3) { animation-delay: 0.3s; }
+        .item:nth-child(4) { animation-delay: 0.4s; }
+        .item:nth-child(5) { animation-delay: 0.5s; }
+        .item:nth-child(6) { animation-delay: 0.6s; }
+        .item:nth-child(7) { animation-delay: 0.7s; }
+        .item:nth-child(8) { animation-delay: 0.8s; }
+        .item:nth-child(9) { animation-delay: 0.9s; }
+        .item:nth-child(10) { animation-delay: 1s; }
+
+        .button-container {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .fun-button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            margin: 0 10px;
+        }
+
+        .fun-button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <h1>Fun Ideas - What I Really Meant</h1>
+
+    <h2>Clarification</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto;">I wanted to clear up any misunderstanding about what I meant when I said I wanted to have "fun". My intention was purely about enjoying platonic activities together, not anything sexual.<br> Here are some of the fun ideas I had in mind:</p>
+
+    <h2>Fun Activities I'd Love to Share</h2>
+    <div class="gallery">
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/skateboarding.jpg" alt="Skateboarding">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Skateboarding Adventures</div>
+                    <div class="item-description">Hitting the skatepark for skateboarding.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/go-kart.webp" alt="go-kart">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Go-karting</div>
+                    <div class="item-description">Hitting the racetrack.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/restaurants.webp" alt="Trying New Restaurants">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Culinary Explorations</div>
+                    <div class="item-description">Trying new foods.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/movies.webp" alt="Movie Nights">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Movie Marathons</div>
+                    <div class="item-description">Going to PVR or watching movies together.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/arcade.webp" alt="Arcade Gaming">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Retro Arcade Challenges</div>
+                    <div class="item-description">Compete in classic arcade games and have a blast!</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/pool.jpg" alt="Playing Pool">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Billiards Showdowns</div>
+                    <div class="item-description">Playing pool together.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/ice-skating.webp" alt="Ice skating">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Ice skating</div>
+                    <div class="item-description">Enjoying ice-skating together.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/photo.webp" alt="photoshoot">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Photoshoot</div>
+                    <div class="item-description">Capture fun memories with a creative photoshoot session.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/cooking.jpg" alt="cooking challenge">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Cooking Challenge</div>
+                    <div class="item-description">Test our culinary skills with a friendly cooking competition.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/football.webp" alt="football">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Football 1v1</div>
+                    <div class="item-description">Face off in an exciting one-on-one football match.</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/dance.webp" alt="dance">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Dance Take-down</div>
+                    <div class="item-description">Show off our dance moves and have a fun dance-off!</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-inner">
+                <div class="item-front">
+                    <img src="pics/video-games.webp" alt="video games">
+                </div>
+                <div class="item-back">
+                    <div class="item-title">Gaming</div>
+                    <div class="item-description">Competing in exiciting video games.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="fun-button" onclick="window.location.href='test.html'">About you</button>
+        <button class="fun-button" onclick="window.location.href='poem2.html'">Next thing</button>
+    </div>
+</body>
+</html>
